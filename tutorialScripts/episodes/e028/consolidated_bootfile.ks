@@ -40,7 +40,8 @@
   }
 
   // Bootup process
-  set ship:control:pilotmainthrottle to 0.
+  if core:part:tag = "" assign_core_tagname().
+	set ship:control:pilotmainthrottle to 0.
   if has_new_command() fetch_and_run_new_command().
   else if has_file("startup.ks") run startup.ks.
 }
