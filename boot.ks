@@ -14,12 +14,8 @@ function notify {
 			if n:length > 14 set n to n:substring(0,14).	
 		} 
 		set core:part:tag to n.
-		local tags is list().
-		tags:add(ship:name + ":" + core:part:tag).
 		switch to 0.
-		for t in tags {
-			log t to "coreTags.txt".
-		}
+		log ship:name + ":" + core:part:tag + char(10) to "coreTags.txt".
 		switch to 1.
 	}
 
