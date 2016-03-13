@@ -116,7 +116,7 @@ until runmode = 0 {
       set extraDV to false.
     }
   }
-  notify("Runmode: " + runmode, 1).
+//notify("Runmode: " + runmode, 1).
   set finalTVAL to TVAL.
   lock THROTTLE to finalTVAL.
 }
