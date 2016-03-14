@@ -1,15 +1,15 @@
 // Excecute Ascent Profile
 // Sean Gordon
 
-FUNCTION EXECUTE_ASCENT_STEP {
-  PARAMETER direction.
-  PARAMETER minAlt.
-  PARAMETER newAngle.
-  PARAMETER newThrust.
+function execute_ascent_step {
+  parameter direction.
+  parameter minAlt.
+  parameter newAngle.
+  parameter newThrust.
 
   set prevThrust to MAXTHRUST.
 
-  UNTIL FALSE {
+  until false {
     if MAXTHRUST < (prevThrust - 10) {
       set currentThrottle to THROTTLE.
       lock THROTTLE  to 0.
@@ -19,8 +19,8 @@ FUNCTION EXECUTE_ASCENT_STEP {
     }
 
     if ALTITUDE > minAlt {
-      lock STEERING to HEADING(direction, newAngle).
-      lock THROTTLE to newThrust.
+      lock steering to heading(direction, newAngle).
+      lock throttle to newThrust.
       break.
     }
 
@@ -28,13 +28,13 @@ FUNCTION EXECUTE_ASCENT_STEP {
   }
 }
 
-FUNCTION EXECUTE_ASCENT_PROFILE {
-  PARAMETER direction.
-  PARAMETER profile.
+function execute_ascent_profile {
+  parameter direction.
+  parameter profile.
 
   set step to 0.
-  UNTIL step >= profile:length - 1 {
-    EXECUTE_ASCENT_STEP(
+  until step >= profile:length - 1 {
+    execute_ascent_step(
       direction,
       profile[step],
       profile[step+1],
