@@ -7,16 +7,6 @@ function notify {
   HUDTEXT("kOS: " + message, dT, 2, 50, GREEN, FALSE).
 }
 
-function require {
-  parameter name.
-  parameter arch.
-
-  if not has_file(name) { copy name from arch. }
-  rename name to "tmp.exec.ks".
-  run tmp.exec.ks.
-  rename "tmp.exec.ks" to name.
-}
-
 {
 	function assign_core_tagname {
 		local n is "".
