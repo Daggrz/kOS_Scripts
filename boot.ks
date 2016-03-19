@@ -43,7 +43,6 @@ function require {
 	}
 
 	function has_new_command {
-		if not addons:rt:hasconnection(ship) return 0.
 		switch to 0.
 		local result is has_file(command_name()).
 		switch to 1.
