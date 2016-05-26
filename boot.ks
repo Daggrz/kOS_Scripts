@@ -7,6 +7,12 @@ function notify {
   HUDTEXT("kOS: " + message, dT, 2, 50, GREEN, FALSE).
 }
 
+function has_file {
+        parameter n.
+        list files in fs.
+        for f in fs if f:name = n return 1.
+        return 0.
+}
 {
 	function assign_core_tagname {
 		local n is "".
@@ -16,20 +22,13 @@ function notify {
 		} 
 		set core:part:tag to n.
 		switch to 0.
-		log ship:name + ":" + core:part:tag + char(10) to "coreTags.txt".
+		log "" to core:part:tag + ".update.ks".
 		switch to 1.
 	}
 
 	function command_name {
 		if core:part:tag = ""  assign_core_tagname(). 
 		return core:part:tag + ".update.ks".	
-	}
-
-	function has_file {
-		parameter n.
-		list files in fs.
-		for f in fs if f:name = n return 1.
-		return 0.
 	}
 
 	function has_new_command {

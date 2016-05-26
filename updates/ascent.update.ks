@@ -1,7 +1,7 @@
 // Launch Update Script
 // Sean Gordon
 
-download("launch.ks").
+copy launch.ks from 0.
 
 notify("Begining launch sequence.", 1).
 
@@ -17,8 +17,8 @@ run launch.ks(
     75000,  // Target Periapsis
     90,     // Target Heading
     FALSE,  // Fairings
-    FALSE   // Extra ∆V in Launch Stage
+    FALSE,  // Extra Delta V in Launch Stage
+    FALSE   // Half Stage
 ).
 
 delete launch.ks.
-notify("Launch Complete", 5).
